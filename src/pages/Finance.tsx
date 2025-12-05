@@ -43,7 +43,13 @@ export const Finance: React.FC<FinanceProps> = ({ transactions, addTransaction, 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Form States
-  const [expenseForm, setExpenseForm] = useState({
+  const [expenseForm, setExpenseForm] = useState<{
+    description: string;
+    amount: string;
+    category: string;
+    date: string;
+    paymentMode: PaymentMode;
+  }>({
     description: '',
     amount: '',
     category: 'Operational',
@@ -68,7 +74,10 @@ export const Finance: React.FC<FinanceProps> = ({ transactions, addTransaction, 
     description: ''
   });
 
-  const [paymentForm, setPaymentForm] = useState({
+  const [paymentForm, setPaymentForm] = useState<{
+    amount: string;
+    mode: PaymentMode;
+  }>({
     amount: '',
     mode: PaymentMode.CASH
   });
@@ -592,7 +601,7 @@ export const Finance: React.FC<FinanceProps> = ({ transactions, addTransaction, 
                         paddingAngle={5}
                         dataKey="value"
                       >
-                        {expenseByCategoryData.map((entry, index) => (
+                        {expenseByCategoryData.map((index:any) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>

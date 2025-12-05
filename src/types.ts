@@ -1,9 +1,5 @@
 
-export enum UserRole {
-  ADMIN = 'Admin',
-  MANAGER = 'Manager',
-  STAFF = 'Staff'
-}
+
 
 export interface User {
   id: string;
@@ -42,18 +38,30 @@ export interface Supplier {
   dueDate?: string;
 }
 
-export enum TransactionType {
-  SALE = 'Sale',
-  EXPENSE = 'Expense',
-  PURCHASE = 'Purchase'
-}
+export const TransactionType = {
+  SALE: 'Sale',
+  EXPENSE: 'Expense',
+  PURCHASE: 'Purchase'
+} as const;
 
-export enum PaymentMode {
-  CASH = 'Cash',
-  CARD = 'Card',
-  UPI = 'UPI',
-  CREDIT = 'Credit'
-}
+export type TransactionType = typeof TransactionType[keyof typeof TransactionType];
+
+export const PaymentMode = {
+  CASH: 'Cash',
+  CARD: 'Card',
+  UPI: 'UPI',
+  CREDIT: 'Credit'
+} as const;
+
+export type PaymentMode = typeof PaymentMode[keyof typeof PaymentMode];
+
+export const UserRole = {
+  ADMIN: 'Admin',
+  MANAGER: 'Manager',
+  STAFF: 'Staff'
+} as const;
+
+export type UserRole = typeof UserRole[keyof typeof UserRole];
 
 export interface Transaction {
   id: string;

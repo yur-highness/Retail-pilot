@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, UploadCloud, FileText, Image as ImageIcon, File, Trash2, Eye, MoreVertical, Clock, RotateCcw, X, Download, ExternalLink } from 'lucide-react';
+import { Search, UploadCloud, FileText, Image as ImageIcon, File, Trash2, Eye, MoreVertical, Clock, RotateCcw, X, Download } from 'lucide-react';
 import type{ Document, DocumentVersion } from '../types';
 
 interface DocumentsProps {
